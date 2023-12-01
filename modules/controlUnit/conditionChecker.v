@@ -1,22 +1,29 @@
 `include "defines.v"
 
-module conditionChecker (reg1, reg2, cuBranchComm, brCond);
-  input [`WORD_LEN-1: 0] reg1, reg2;
-  input [1:0] cuBranchComm;
+module conditionChecker (reg1, reg2, cuBranchComm, brCond, imm, pc_value, link_register);
   output reg brCond;
+  input wire [`WORD_LEN-1: 0] reg1, reg2;
+  input wire [1:0] cuBranchComm;
+  input wire [15:0] imm;
+  input wire [`WORD_LEN-1: 0] pc_value,
+  output reg brCond,
+  output reg [`WORD_LEN-1: 0] link_register // Novo registrador de link
 
   always @ ( * ) begin
     case (cuBranchComm)
-    `define COND_SLTU 4'b1001
-    `define COND_SLTIU 4'b1000
-    `define COND_SLTI 4'b0111
-    `define COND_SLT 4'b0110
-    `define COND_JR 4'b0101
-    `define COND_JAL 4'b0100
-    `define COND_JUMP 4'b0010
-    `define COND_BEQ 4'b0011
-    `define COND_BNE 4'b0001
-    `define COND_NOTHING 4'b0000
+      `COND_JUMP: brCond <= 1;
+      `COND_JAL: brCond <= 1;
+      link_register_reg <= pc_value; // Salvar o endereço de retorno
+      next_pc_reg <= pc_value + 1; // Atualizar o PC para o próximo endereço
+      `COND_JR: brCond <= 1;
+      pc_value <= registers[reg1];
+      next_pc_reg <= pc_value + 1; // Atualizar o PC para o próximo endereço
+      `COND_BEQ: brCond <= (reg1 == reg2) ? 1 : 0;
+      `COND_BNE: brCond <= (reg1 != reg2) ? 1 : 0;
+      `COND_SLT: brCond <= (reg1 < reg2) ? 1 : 0;
+      `COND_SLTI: brCond <= (reg1 < imm) ? 1 : 0;
+      `COND_SLTU: brCond <= (reg1 != reg2) ? 1 : 0;
+      `COND_SLTIU: brCond <= (reg1 < imm) ? 1 : 0;
       default: brCond <= 0;
     endcase
   end
