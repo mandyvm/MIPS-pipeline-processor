@@ -22,7 +22,7 @@ module conditionChecker (reg1, reg2, cuBranchComm, brCond, imm, pc_value, link_r
       `COND_BNE: brCond <= (reg1 != reg2) ? 1 : 0;
       `COND_SLT: brCond <= (reg1 < reg2) ? 1 : 0;
       `COND_SLTI: brCond <= (reg1 < imm) ? 1 : 0;
-      `COND_SLTU: brCond <= (reg1 != reg2) ? 1 : 0;
+      `COND_SLTU: brCond <= (reg1 < reg2) ? 1 : 0;
       `COND_SLTIU: brCond <= (reg1 < imm) ? 1 : 0;
       default: brCond <= 0;
     endcase
