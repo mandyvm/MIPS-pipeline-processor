@@ -17,6 +17,7 @@ module ALU (val1, val2, EXE_CMD, aluOut);
       `EXE_SLL: aluOut <= val1 <<< val2;
       `EXE_SRA: aluOut <= val1 >> val2;
       `EXE_SRL: aluOut <= val1 >>> val2;
+      `EXE_MULT: aluOut <= val1 * val2;
       default: aluOut <= 0;
     endcase
   end
