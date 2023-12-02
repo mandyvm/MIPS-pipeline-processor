@@ -1,9 +1,11 @@
 `include "defines.v"
 
-module ALU (val1, val2, EXE_CMD, aluOut);
+module ALU (val1, val2, EXE_CMD, aluOut, HI, LO, MFHI, MFLO);
   input [`WORD_LEN-1:0] val1, val2;
   input [`EXE_CMD_LEN-1:0] EXE_CMD;
+  input MFHI, MFLO;  // Sinais de controle para MFHI e MFLO
   output reg [`WORD_LEN-1:0] aluOut;
+  output reg [`WORD_LEN-1:0] HI, LO;
 
   always @ ( * ) begin
     case (EXE_CMD)
