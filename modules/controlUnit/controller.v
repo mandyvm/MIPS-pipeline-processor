@@ -46,8 +46,12 @@ module controller (opCode, branchEn, EXE_CMD, Branch_command, Is_Imm, ST_or_BNE,
         `OP_JR: begin EXE_CMD <= `EXE_NO_OPERATION; Is_Imm <= 1; Branch_command <= `COND_JR; branchEn <= 1;  end
         `OP_SLT: begin EXE_CMD <= `EXE_NO_OPERATION; Is_Imm <= 1; Branch_command <= `COND_SLT; WB_EN <= 1; end
         `OP_SLTI: begin EXE_CMD <= `EXE_NO_OPERATION; Is_Imm <= 1; Branch_command <= `COND_SLTI; WB_EN <= 1; end
-       `OP_SLTU: begin EXE_CMD <= `EXE_NO_OPERATION; Is_Imm <= 1; Branch_command <= `COND_SLTU; WB_EN <= 1; end
-       `OP_SLTIU: begin EXE_CMD <= `EXE_NO_OPERATION; Is_Imm <= 1; Branch_command <= `COND_SLTIU; WB_EN <= 1; end
+        `OP_SLTU: begin EXE_CMD <= `EXE_NO_OPERATION; Is_Imm <= 1; Branch_command <= `COND_SLTU; WB_EN <= 1; end
+        `OP_SLTIU: begin EXE_CMD <= `EXE_NO_OPERATION; Is_Imm <= 1; Branch_command <= `COND_SLTIU; WB_EN <= 1; end
+	`OP_BLEZ: begin EXE_CMD <= `EXE_NO_OPERATION; Is_Imm <= 1; Branch_command <= `COND_BLEZ; branchEn <= 1; end //AVM
+	`OP_BGTZ: begin EXE_CMD <= `EXE_NO_OPERATION; Is_Imm <= 1; Branch_command <= `COND_BGTZ; branchEn <= 1; end //AVM
+	`OP_BLTZ: begin EXE_CMD <= `EXE_NO_OPERATION; Is_Imm <= 1; Branch_command <= `COND_BLTZ; branchEn <= 1; end //AVM
+	`OP_BGEZ: begin EXE_CMD <= `EXE_NO_OPERATION; Is_Imm <= 1; Branch_command <= `COND_BGEZ; branchEn <= 1; end //AVM
         default: {branchEn, EXE_CMD, Branch_command, Is_Imm, ST_or_BNE, WB_EN, MEM_R_EN, MEM_W_EN} <= 0;
       endcase
     end
