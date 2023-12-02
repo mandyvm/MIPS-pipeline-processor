@@ -24,7 +24,8 @@ module controller (opCode, branchEn, EXE_CMD, Branch_command, Is_Imm, ST_or_BNE,
         `OP_SRA: begin EXE_CMD <= `EXE_SRA; WB_EN <= 1; end
         `OP_SRL: begin EXE_CMD <= `EXE_SRL; WB_EN <= 1; end
         `OP_MULT: begin EXE_CMD <= `EXE_MULT; WB_EN <= 1; end
-	`OP_DIV: begin EXE_CMD <= `EXE_DIV; WB_EN <= 1; end //AVM
+	`OP_DIVHI: begin EXE_CMD <= `EXE_DIVHI; WB_EN <= 1; end //AVM
+	`OP_DIVLO: begin EXE_CMD <= `EXE_DIVLO; WB_EN <= 1; end //AVM
 	`OP_MFHI: begin EXE_CMD <= `EXE_MFHI; WB_EN <= 1; end //AVM
 	`OP_MFLO: begin EXE_CMD <= `EXE_MFLO; WB_EN <= 1; end //AVM
 	
