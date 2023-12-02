@@ -44,8 +44,8 @@
 `define OP_BEQ 6'b101101
 `define OP_BNE 6'b101110
 `define OP_JMP 6'b101111
-`define OP_JAL 6'b10000
-`define OP_JR 6'b10001
+`define OP_JAL 6'b01000
+`define OP_JR 6'b01001
 
 // To be used in side ALU
 `define EXE_ADD 5'b00000
