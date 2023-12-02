@@ -24,6 +24,10 @@ module conditionChecker (reg1, reg2, cuBranchComm, brCond, imm, pc_value, link_r
       `COND_SLTI: brCond <= (reg1 < imm) ? 1 : 0;
       `COND_SLTU: brCond <= (reg1 < reg2) ? 1 : 0;
       `COND_SLTIU: brCond <= (reg1 < imm) ? 1 : 0;
+      `COND_BLEZ: brCond <= (reg1 <= 0) ? 1 : 0; //AVM
+      `COND_BGTZ: brCond <= (reg1 > 0) ? 1 : 0; //AVM
+      `COND_BLTZ: brCond <= (reg1 < 0) ? 1 : 0; //AVM
+      `COND_BGEZ: brCond <= (reg1 >= 0) ? 1 : 0; //AVM
       default: brCond <= 0;
     endcase
   end
