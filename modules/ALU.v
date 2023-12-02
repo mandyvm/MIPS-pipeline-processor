@@ -39,7 +39,4 @@ module ALU (val1, val2, EXE_CMD, aluOut);
     end
   end
 endmodule // ALU
-      default: aluOut <= 0;
-    endcase
-  end
-endmodule // ALU
+  
