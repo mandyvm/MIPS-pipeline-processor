@@ -63,9 +63,13 @@
 `define EXE_NO_OPERATION 5'b11111 // for NOP, BEQ, BNQ, JMP
 
 // To be used in conditionChecker
-`define COND_JR 3'b101
-`define COND_JAL 3'b100
-`define COND_JUMP 3'b010
-`define COND_BEQ 3'b011
-`define COND_BNE 3'b001
-`define COND_NOTHING 3'b000
+`define COND_JR 4'b0101
+`define COND_JAL 4'b0100
+`define COND_JUMP 4'b0010
+`define COND_BEQ 4'b0011
+`define COND_BNE 4'b0001
+`define COND_NOTHING 4'b0000
+`define COND_NOTHING 4'b0110
+`define COND_NOTHING 4'b0111
+`define COND_NOTHING 4'b1000
+`define COND_NOTHING 4'b1001
