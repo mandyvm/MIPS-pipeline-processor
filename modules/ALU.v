@@ -3,9 +3,9 @@
 module ALU (val1, val2, EXE_CMD, aluOut, HI, LO, MFHI, MFLO);
   input [`WORD_LEN-1:0] val1, val2;
   input [`EXE_CMD_LEN-1:0] EXE_CMD;
-  input MFHI, MFLO;  // Sinais de controle para MFHI e MFLO AVM
-  output reg [`WORD_LEN-1:0] aluOut; //AVM
-  output reg [`WORD_LEN-1:0] HI, LO; //AVM
+  input MFHI, MFLO;  // Sinais de controle para MFHI e MFLO 
+  output reg [`WORD_LEN-1:0] aluOut; 
+  output reg [`WORD_LEN-1:0] HI, LO; 
 
   always @ ( * ) begin
     case (EXE_CMD)
@@ -26,7 +26,7 @@ module ALU (val1, val2, EXE_CMD, aluOut, HI, LO, MFHI, MFLO);
     endcase
   end
 
-  // Lógica para MFHI e MFLO AVM
+  // Lógica para MFHI e MFLO 
   always @ (posedge clock or posedge reset) begin
     if (reset) begin
       HI <= 0;
