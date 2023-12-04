@@ -69,7 +69,7 @@
 `define COND_BEQ 4'b0011
 `define COND_BNE 4'b0001
 `define COND_NOTHING 4'b0000
-`define COND_NOTHING 4'b0110
-`define COND_NOTHING 4'b0111
-`define COND_NOTHING 4'b1000
-`define COND_NOTHING 4'b1001
+`define COND_BGTZ 4'b0110
+`define COND_BLTZ 4'b0111
+`define COND_BGEZ 4'b1000
+`define COND_BLEZ 4'b1001
